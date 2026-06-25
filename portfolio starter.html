@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Portfolio Hero</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+      position:relative;
+    }
+
+    /* Floating Bubbles */
+
+    .bubbles{
+      position:absolute;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      top:0;
+      left:0;
+      z-index:1;
+    }
+
+    .bubbles span{
+      position:absolute;
+      bottom:-150px;
+      border-radius:50%;
+      background:rgba(56,189,248,0.15);
+      animation:animate 15s linear infinite;
+      box-shadow:0 0 20px rgba(56,189,248,.5);
+    }
+
+    .bubbles span:nth-child(1){
+      left:10%;
+      width:80px;
+      height:80px;
+      animation-duration:12s;
+    }
+
+    .bubbles span:nth-child(2){
+      left:20%;
+      width:40px;
+      height:40px;
+      animation-duration:18s;
+    }
+
+    .bubbles span:nth-child(3){
+      left:35%;
+      width:100px;
+      height:100px;
+      animation-duration:20s;
+    }
+
+    .bubbles span:nth-child(4){
+      left:50%;
+      width:60px;
+      height:60px;
+      animation-duration:16s;
+    }
+
+    .bubbles span:nth-child(5){
+      left:65%;
+      width:120px;
+      height:120px;
+      animation-duration:25s;
+    }
+
+    .bubbles span:nth-child(6){
+      left:80%;
+      width:50px;
+      height:50px;
+      animation-duration:14s;
+    }
+
+    .bubbles span:nth-child(7){
+      left:90%;
+      width:90px;
+      height:90px;
+      animation-duration:22s;
+    }
+
+    @keyframes animate{
+      0%{
+        transform:translateY(0) scale(1);
+        opacity:0;
+      }
+
+      10%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+      }
+    }
+
+    /* Main Card */
+
+    .container{
+      position:relative;
+      z-index:10;
+      text-align:center;
+      padding:50px;
+      width:850px;
+      max-width:90%;
+      border-radius:30px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 0 40px rgba(0,0,0,.4);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      50%{
+        transform:translateY(-12px);
+      }
+    }
+
+    h1{
+      color:white;
+      font-size:65px;
+      font-weight:700;
+      line-height:1.4;
+    }
+
+    .static{
+      color:#fff;
+    }
+
+    .dynamic{
+      color:#38bdf8;
+      margin-left:12px;
+      position:relative;
+      text-shadow:
+      0 0 10px #38bdf8,
+      0 0 25px #38bdf8,
+      0 0 50px #38bdf8;
+    }
+
+    /* Cursor */
+
+    .dynamic::after{
+      content:"";
+      position:absolute;
+      right:-10px;
+      top:5px;
+      width:4px;
+      height:85%;
+      background:#38bdf8;
+      border-radius:10px;
+      animation:blink .7s infinite;
+    }
+
+    @keyframes blink{
+      50%{
+        opacity:0;
+      }
+    }
+
+    p{
+      color:#cbd5e1;
+      margin-top:15px;
+      font-size:18px;
+      letter-spacing:1px;
+    }
+
+    .btns{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 35px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.4s;
+    }
+
+    .btn-primary{
+      background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+      color:white;
+      box-shadow:0 0 20px rgba(56,189,248,.5);
+    }
+
+    .btn-primary:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 35px rgba(139,92,246,.8);
+    }
+
+    .btn-secondary{
+      border:2px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .btn-secondary:hover{
+      background:#38bdf8;
+      color:#fff;
+      transform:scale(1.08);
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px){
+
+      .container{
+        padding:35px 20px;
+      }
+
+      h1{
+        font-size:38px;
+      }
+
+      p{
+        font-size:15px;
+      }
+
+      .btn{
+        padding:12px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Animated Bubbles -->
+
+  <div class="bubbles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Main Content -->
+
+  <div class="container">
+
+    <h1>
+      <span class="static">I am</span>
+      <span class="dynamic" id="text"></span>
+    </h1>
+
+    <p>
+      I create modern, responsive and user friendly websites.
+    </p>
+
+    <div class="btns">
+      
+      <a href="index.html" class="btn btn-secondary">View Portfolio</a>
+    </div>
+
+  </div>
+
+  <script>
+
+    const words = [
+      "Web Developer",
+      "Web Designer",
+      "Graphic Designer",
+      "Freelancer",
+      "UI/UX Designer",
+      "Digital Marketer",
+      "Content Creator"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const text = document.getElementById("text");
+
+    function typeEffect(){
+
+      const currentWord = words[wordIndex];
+
+      if(isDeleting){
+        text.textContent = currentWord.substring(0,charIndex--);
+      }else{
+        text.textContent = currentWord.substring(0,charIndex++);
+      }
+
+      let speed = isDeleting ? 60 : 120;
+
+      if(!isDeleting && charIndex === currentWord.length + 1){
+        speed = 1500;
+        isDeleting = true;
+      }
+
+      if(isDeleting && charIndex === 0){
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+
+      setTimeout(typeEffect,speed);
+    }
+
+    typeEffect();
+
+  </script>
+
+</body>
+</html>
